@@ -1,10 +1,15 @@
 import { NavLink } from "react-router-dom";
+import { FiShoppingCart } from "react-icons/fi";
+import { useContext } from "react";
+import { ShopiCardContext } from "../../Context";
 
 const Navbar = () => {
+  const context = useContext(ShopiCardContext);
+
   const activeStyle = "underline underline-offset-4 text-green-600";
 
   return (
-    <nav className="flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm bg-gray-100">
+    <nav className="flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm bg-gray-200">
       <ul className="flex items-center gap-4">
         <li className="font-semibold text-lg">
           <NavLink to="/">Shopee</NavLink>
@@ -59,9 +64,7 @@ const Navbar = () => {
         </li>
       </ul>
       <ul className="flex items-center gap-4">
-        <li
-        className="text-black/60"
-        >maria@ggh.com</li>
+        <li className="text-black/60">maria@ggh.com</li>
         <li>
           <NavLink
             to="/my-orders"
@@ -87,7 +90,15 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li className={({ isActive }) => (isActive ? activeStyle : undefined)}>
-          carrito 0
+          <div className="relative w-200 h-200">
+            <NavLink>
+              <FiShoppingCart className="w-full text-2xl" />
+              <button className="absolute top-[-12px]
+               right-[-10px] w-5 h-5 bg-green-600 rounded-xl text-white">
+                {context.count}
+              </button>
+            </NavLink>
+          </div>
         </li>
       </ul>
     </nav>

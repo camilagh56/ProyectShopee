@@ -1,4 +1,7 @@
 import { useRoutes, BrowserRouter } from "react-router-dom";
+import { ShopiCardProvider } from "../../Context";
+import { useContext } from "react";
+import { ShopiCardContext } from "../../Context";
 import Home from "../Home";
 import MyAccount from "../MyAccount";
 import MyOrder from "../MyOrder";
@@ -22,11 +25,14 @@ const AppRoutes = () => {
 };
 
 function App() {
+  const context = useContext(ShopiCardContext);
   return (
-    <BrowserRouter>
-      <AppRoutes />
-      <Navbar/>
-    </BrowserRouter>
+    <ShopiCardProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <Navbar />
+      </BrowserRouter>
+    </ShopiCardProvider>
   );
 }
 

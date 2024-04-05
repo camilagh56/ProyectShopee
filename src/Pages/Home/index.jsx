@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { Layout } from "../../components/Layout";
 import { Card } from "../../components/Card/";
+import { useContext } from "react";
+import { ShopiCardContext } from "../../Context";
+import { CardDetail } from "../../components/CardDetail/CardDetail";
 
 function Home() {
+  const context = useContext(ShopiCardContext);
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
@@ -14,11 +18,12 @@ function Home() {
   return (
     <Layout className="bg-red-100">
       Home
-      <div className='grid gap-10 grid-cols-4 w-full max-w-screen-lg'>
+      <div className="grid gap-10 grid-cols-4 w-full max-w-screen-lg">
         {products?.map((item) => {
           return <Card key={item.id} data={item} />;
         })}
       </div>
+      {context.openDetail && <CardDetail />}
     </Layout>
   );
 }

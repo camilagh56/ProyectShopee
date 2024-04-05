@@ -8,6 +8,7 @@ import MyOrder from "../MyOrder";
 import MyOrders from "../MyOrders";
 import NotFound from "../NotFound";
 import SignIn from "../SignIn";
+import { CardDetail } from "../../components/CardDetail/CardDetail";
 import { Navbar } from "../../components/Navbar";
 import "../../App.css";
 
@@ -18,6 +19,7 @@ const AppRoutes = () => {
     { path: "/my-order", element: <MyOrder /> },
     { path: "/my-orders", element: <MyOrders /> },
     { path: "/sign-in", element: <SignIn /> },
+    { path: "/card-detail" },
     { path: "/*", element: <NotFound /> },
   ]);
 
@@ -26,6 +28,8 @@ const AppRoutes = () => {
 
 function App() {
   const context = useContext(ShopiCardContext);
+  console.log(context, "aqui context");
+
   return (
     <ShopiCardProvider>
       <BrowserRouter>

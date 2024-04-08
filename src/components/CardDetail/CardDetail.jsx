@@ -6,8 +6,7 @@ import "./CardDetail.css";
 
 const CardDetail = () => {
   const context = useContext(ShopiCardContext);
-  const dataProduct = context.showProductCard;
-  const { image, price, description, title, category } = dataProduct;
+  console.log("PRODUCT TO SHOW: ", context.showProductCard);
 
   return (
     <ModalCartDetail>
@@ -24,14 +23,25 @@ const CardDetail = () => {
             </button>
           </div>
         </div>
-        <figure>
+        <div>
+          
+        </div>
+        <figure className="conteiner-img">
           <img
-            className="w-full h-full rounded-lg"
-            src={image}
+            className="img-product w-full h-2/3 rounded-lg"
+            src={context.showProductCard.image}
+            alt={context.showProductCard.image}
           />
         </figure>
-        <p>
-        </p>
+        <div className="conteiner-span">
+          <p>
+            <span className="text-black">${context.showProductCard.price}</span>
+            <span className="text-black">{context.showProductCard.title}</span>
+            <span className="text-black">
+              {context.showProductCard.description}
+            </span>
+          </p>
+        </div>
       </aside>
     </ModalCartDetail>
   );

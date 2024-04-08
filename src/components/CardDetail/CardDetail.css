@@ -1,5 +1,23 @@
 .product-detail {
-    width: 400px;
-    height: calc(100vh - 68px);
+    width: 350px;
+    height: 90vh;
     top: 74px;
+}
+
+.conteiner-img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    /* background-color: aqua; */
+}
+
+.conteiner-img img {
+    width: 85%;
+    height: 45vh;
+}
+
+.conteiner-span {
+    display: inline-block;
+    margin-top: 15px;
 }

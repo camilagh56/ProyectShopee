@@ -1,6 +1,6 @@
 .product-detail {
     width: 350px;
-    height: 90vh;
+    height: 88.5%;
     top: 74px;
 }
 
@@ -19,5 +19,7 @@
 
 .conteiner-span {
     display: inline-block;
+    max-height: 210px;
+    overflow-y: auto;
     margin-top: 15px;
 }

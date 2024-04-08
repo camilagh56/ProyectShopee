@@ -6,6 +6,9 @@ export const ShopiCardProvider = ({ children }) => {
   const [count, setCount] = useState(0);
   const [openDetail, setOpenDetail] = useState(false);
   const [showProductCard, setShowProductCard] = useState({})
+  const [cartProducts, setCartProducts] = useState([])
+
+  console.log(cartProducts, "aqui carito");
 
   const changeDetail = () => {
     setOpenDetail(!openDetail);
@@ -20,7 +23,9 @@ export const ShopiCardProvider = ({ children }) => {
         setOpenDetail,
         changeDetail,
         showProductCard,
-        setShowProductCard
+        setShowProductCard,
+        cartProducts,
+        setCartProducts
       }}
     >
       {children}

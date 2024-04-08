@@ -1,4 +1,4 @@
-import { ReactDOM } from "react-dom";
+import ReactDOM from "react-dom";
 
 const ModalCartDetail = ({ children }) => {
   return ReactDOM.createPortal(

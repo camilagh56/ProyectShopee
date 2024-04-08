@@ -5,6 +5,7 @@ export const ShopiCardContext = createContext();
 export const ShopiCardProvider = ({ children }) => {
   const [count, setCount] = useState(0);
   const [openDetail, setOpenDetail] = useState(false);
+  const [showProductCard, setShowProductCard] = useState({})
 
   const changeDetail = () => {
     setOpenDetail(!openDetail);
@@ -17,7 +18,9 @@ export const ShopiCardProvider = ({ children }) => {
         setCount,
         openDetail,
         setOpenDetail,
-        changeDetail
+        changeDetail,
+        showProductCard,
+        setShowProductCard
       }}
     >
       {children}

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { ShopiCardContext } from "../../Context";
 import { MdAdd } from "react-icons/md";
+import { FaCheck } from "react-icons/fa6";
 
 const Card = (data) => {
   const context = useContext(ShopiCardContext);
@@ -13,6 +14,32 @@ const Card = (data) => {
   const addProductsToCart = (productData) => {
     context.setCount(context.count + 1);
     context.setCartProducts([...context.cartProducts, productData]);
+  };
+
+  const renderIcon = (id) => {
+    const isInCart =
+      context.cartProducts.filter((product) => product.id === id).length > 0;
+
+    if (isInCart) {
+      return (
+        <div
+          className="absolute top-0 right-0 flex justify-center items-center w-6 h-6 rounded-full m-2 bg-green-600"
+        >
+          <FaCheck className="text-white"/>
+        </div>  
+      );
+    } else {
+      return (
+        <div
+          className="absolute top-0 right-0 flex justify-center items-center w-6 h-6 rounded-full m-2 p-1 bg-white"
+          onClick={() => {
+            addProductsToCart(data.data);
+          }}
+        >
+          <MdAdd className=""/>
+        </div>  
+      );
+    }
   };
 
   return (
@@ -31,16 +58,17 @@ const Card = (data) => {
           onClick={() => productShow(data.data)}
         />
         <div
-          className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1"
+          className="w-6 h-6 rounded-full m-2 p-1"
           onClick={() => {
             addProductsToCart(data.data);
           }}
         >
-          <MdAdd />
+          {renderIcon(data.data.id)}
         </div>
       </figure>
-      <p className="flex justify-between"
-       onClick={() => productShow(data.data)}
+      <p
+        className="flex justify-between"
+        onClick={() => productShow(data.data)}
       >
         <span className="text-sm font-light ">{data.data.title}</span>
         <span className="text-lg font-medium">{data.data.price}</span>

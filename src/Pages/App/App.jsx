@@ -8,8 +8,8 @@ import MyOrder from "../MyOrder";
 import MyOrders from "../MyOrders";
 import NotFound from "../NotFound";
 import SignIn from "../SignIn";
-import { CardDetail } from "../../components/CardDetail/CardDetail";
 import { Navbar } from "../../components/Navbar";
+import { CartShopping } from "../../components/CartShopping";
 import "../../App.css";
 
 const AppRoutes = () => {
@@ -18,6 +18,7 @@ const AppRoutes = () => {
     { path: "/my-account", element: <MyAccount /> },
     { path: "/my-order", element: <MyOrder /> },
     { path: "/my-orders", element: <MyOrders /> },
+    { path: "/my-orders/last", element: <MyOrders/> },
     { path: "/sign-in", element: <SignIn /> },
     { path: "/card-detail" },
     { path: "/*", element: <NotFound /> },

@@ -4,6 +4,7 @@ import { Card } from "../../components/Card/";
 import { useContext } from "react";
 import { ShopiCardContext } from "../../Context";
 import { CardDetail } from "../../components/CardDetail/CardDetail";
+import { CartShopping } from "../../components/CartShopping";
 
 function Home() {
   const context = useContext(ShopiCardContext);
@@ -24,6 +25,7 @@ function Home() {
         })}
       </div>
       {context.openDetail && <CardDetail />}
+      {context.showCart && <CartShopping />}
     </Layout>
   );
 }

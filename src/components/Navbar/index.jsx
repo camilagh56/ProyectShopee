@@ -92,10 +92,17 @@ const Navbar = () => {
         <li className={({ isActive }) => (isActive ? activeStyle : undefined)}>
           <div className="relative w-200 h-200">
             <NavLink>
-              <FiShoppingCart className="w-full text-2xl" />
-              <button className="absolute top-[-12px]
-               right-[-10px] w-5 h-5 bg-green-600 rounded-xl text-white">
-                {context.count}
+              <FiShoppingCart
+                className="w-full text-2xl"
+                onClick={context.shoppingCartShow}
+              />
+              <button
+                className="absolute top-[-12px]
+               right-[-10px] w-5 h-5 bg-green-600 rounded-xl text-white"
+              >
+                {context.cartProducts.length > 0
+                  ? context.count
+                  : context.cartProducts.length}
               </button>
             </NavLink>
           </div>

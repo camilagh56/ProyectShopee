@@ -7,12 +7,16 @@ export const ShopiCardProvider = ({ children }) => {
   const [openDetail, setOpenDetail] = useState(false);
   const [showProductCard, setShowProductCard] = useState({})
   const [cartProducts, setCartProducts] = useState([])
-
-  console.log(cartProducts, "aqui carito");
+  const [showCart, setShowCart] = useState(false);
+  const [order, setOrder] = useState([])
 
   const changeDetail = () => {
     setOpenDetail(!openDetail);
   };
+
+  const shoppingCartShow = () => {
+    setShowCart(!showCart)
+  }
 
   return (
     <ShopiCardContext.Provider
@@ -25,7 +29,12 @@ export const ShopiCardProvider = ({ children }) => {
         showProductCard,
         setShowProductCard,
         cartProducts,
-        setCartProducts
+        setCartProducts,
+        showCart,
+        setShowCart,
+        shoppingCartShow,
+        order,
+        setOrder,
       }}
     >
       {children}
